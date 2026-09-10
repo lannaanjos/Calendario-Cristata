@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "UPCampusPlus"
+rootProject.name = "Quero-Quero-Calendario"
 include(":app")
  

@@ -9,12 +9,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="UP Campus+"
+        android:text="Quero-Quero Calendário"
         android:textSize="38sp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Títulor"
+        android:text="Pássaro Diário"
         android:textSize="18sp" />
     <Button
         android:id="@+id/btnComecar"

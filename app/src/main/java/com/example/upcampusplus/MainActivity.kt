@@ -21,6 +21,19 @@ class MainActivity : ComponentActivity() {
         setContentView(R.layout.main_activity)
 
         val btnComecar = findViewById<Button>(R.id.btnComecar)
+        val btnVoltar = findViewById<Button>(R.id.btnVoltar)
+        val btnSobre = findViewById<Button>(R.id.btnSobre)
+
+        btnComecar.setOnClickListener{
+            val intent = Intent(
+                this, MainActivity::class.java
+            )
+            startActivity(intent)
+        }
+
+        btnVoltar.setOnClickListener{
+            finish()
+        }
 
     }
 }
