@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
         val btnComecar = findViewById<Button>(R.id.btnComecar)
         val btnVoltar = findViewById<Button>(R.id.btnVoltar)
         val btnSobre = findViewById<Button>(R.id.btnSobre)
-
+        val btnSalvar = findViewById<Button>(R.id.btnSalvar)
         btnComecar.setOnClickListener{
             val intent = Intent(
                 this, MainActivity::class.java
@@ -35,6 +35,24 @@ class MainActivity : ComponentActivity() {
             finish()
         }
 
+
+
+        btnSalvar.setOnClickListener {
+            val evento = Evento(
+                nome = etNome.text.toString().trim(),
+                data = etData.text.toString().trim(),
+                local = etLocal.text.toString().trim(),
+                descricao = etDescricao.text.toString().trim()
+            )
+            if (evento.nome.isEmpty()) {
+                etNome.error = "Informe o nome"
+                return@setOnClickListener
+            }
+            val banco = BancoHelper(this)
+            banco.inserir(evento)
+            Toast.makeText(this, "Evento salvo!", Toast.LENGTH_SHORT).show()
+            finish()
+        }
     }
 }
 
