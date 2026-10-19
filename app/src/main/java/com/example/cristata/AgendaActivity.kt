@@ -1,4 +1,4 @@
-package com.example.aerotalks
+package com.example.cristata
 
 import android.content.Intent
 import android.os.Bundle

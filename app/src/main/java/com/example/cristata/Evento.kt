@@ -1,4 +1,4 @@
-package com.example.aerotalks
+package com.example.cristata
 
 data class Evento(
     val id: Int = 0,

@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.aerotalks"
+    namespace = "com.example.cristata"
     compileSdk {
         version = release(37)
     }

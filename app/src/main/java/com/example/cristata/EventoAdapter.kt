@@ -1,4 +1,4 @@
-package com.example.aerotalks
+package com.example.cristata
 
 import android.view.LayoutInflater
 import android.view.View
