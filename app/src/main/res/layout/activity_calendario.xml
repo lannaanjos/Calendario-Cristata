@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calendário Cristata"
+        android:textSize="28sp" />
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/btnNovoEvento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NOVO EVENTO"
+        android:layout_marginTop="12dp" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvEventos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/placeholderPassaro"
+        android:layout_width="363dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="12dp"
+        android:background="#E0E0E0"
+        android:gravity="center"
+        android:text="Placeholder para a futura API de pássaros"
+        android:textColor="#616161" />
+
+    <Button
+        android:id="@+id/btnVoltar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VOLTAR" />
+</LinearLayout>

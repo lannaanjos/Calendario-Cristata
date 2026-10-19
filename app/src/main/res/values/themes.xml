@@ -1,5 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Aerotalks" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#2E7D32</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+    </style>
 
-    <style name="Theme.UPCampusPlus" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Aerotalks" parent="Base.Theme.Aerotalks" />
 </resources>
