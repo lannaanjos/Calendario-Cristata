@@ -22,5 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "aerotalks"
+rootProject.name = "Calendario-Cristata"
 include(":app")
