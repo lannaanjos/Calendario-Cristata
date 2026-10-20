@@ -9,7 +9,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.aerotalks"
+        applicationId = "com.example.cristata"
         minSdk = 24
         targetSdk = 37
         versionCode = 1
