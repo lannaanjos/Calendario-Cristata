@@ -17,4 +17,4 @@ Ele contará com uma tela de configuração, onde é possível escolher o modo c
 
 Bruna Amaral Chapelin
 Lanna dos Anjos Costa
-Marcelos Vinicius Ferreira Schiavon
+Marcos Vinicius Ferreira da Rocha Schiavon
