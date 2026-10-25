@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Calendário Cristata</string>
+    <string name="nav_home">Início</string>
+    <string name="nav_eventos">Eventos</string>
+    <string name="nav_calendario">Calendário</string>
+    <string name="nav_colecao">Coleção</string>
+    <string name="nav_config">Configurações</string>
 </resources>
