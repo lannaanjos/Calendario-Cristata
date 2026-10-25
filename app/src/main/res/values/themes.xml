@@ -1,9 +1,23 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+<resources>
     <style name="Base.Theme.Cristata" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">#2E7D32</item>
-        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimary">@color/cor_principal</item>
+        <item name="colorOnPrimary">@color/cor_texto_sobre_primaria</item>
+        <item name="android:windowBackground">@color/cor_background</item>
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="fontFamily">@font/open_sans</item>
     </style>
 
     <style name="Theme.Cristata" parent="Base.Theme.Cristata" />
+
+    <!-- Títulos -->
+    <style name="TextoTitulo">
+        <item name="android:fontFamily">@font/alfa_slab_one</item>
+        <item name="android:textColor">@color/cor_principal</item>
+        <item name="android:textSize">40sp</item>
+    </style>
+
+    <!-- Subtítulos -->
+    <style name="TextoSubtitulo" parent="TextoTitulo">
+        <item name="android:textSize">26sp</item>
+    </style>
 </resources>
