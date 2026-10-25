@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="cor_background">#c4d9cd</color> <!-- fundo das telas -->
+    <color name="cor_painel">#e9e4b4</color> <!-- cor dos cabeçalhos, listas e campos -->
+    <color name="cor_painel_secundario">#6a907b</color> <!-- detalhes dos painesi -->
+    <color name="cor_cartao">#eeeeee</color>  <!-- cartões de evento -->
+
+    <color name="cor_principal">#00302c</color> <!-- barra inferior, títulos -->
+    <color name="cor_destaque">#6bc68e</color> <!-- ícones inativos, formulário -->
+    <color name="cor_texto">#000000</color>
+    <color name="cor_texto_sobre_primaria">#ffffff</color>
+
+
+    <color name="cor_evento_feriado">#6BC68E</color>
+    <color name="cor_evento_usuario">#2F4FEA</color>
 </resources>
