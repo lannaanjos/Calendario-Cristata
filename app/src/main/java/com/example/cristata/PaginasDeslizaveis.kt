@@ -12,9 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
+import android.widget.ImageView
 
 @Composable
-fun PaginasDeslizaveis(paginas: List<Pagina>, barra: BottomNavigationView) {
+fun PaginasDeslizaveis(paginas: List<Pagina>, barra: BottomNavigationView, urlPassaro: String? = null) {
     val estado = rememberPagerState { paginas.size }
     val escopo = rememberCoroutineScope()
 
@@ -38,6 +39,16 @@ fun PaginasDeslizaveis(paginas: List<Pagina>, barra: BottomNavigationView) {
         AndroidView(
             factory = { contexto ->
                 LayoutInflater.from(contexto).inflate(paginas[indice].layout, null)
+            },
+            update = { view ->
+                // só existe na pagina_inicial; nas outras o findViewById devolve null
+                val img = view.findViewById<ImageView>(R.id.imgPassaro)
+                if (img != null && urlPassaro != null) {
+                    img.load(urlPassaro) {
+                        crossfade(true)
+                        placeholder(R.color.cor_painel_secundario)
+                    }
+                }
             },
             modifier = Modifier.fillMaxSize()
         )
