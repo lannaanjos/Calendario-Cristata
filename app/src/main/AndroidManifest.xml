@@ -18,8 +18,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".AgendaActivity" />
         <activity android:name=".CadastroEventoActivity" />
+        <activity android:name=".PassaroActivity" />
 
     </application>
 
