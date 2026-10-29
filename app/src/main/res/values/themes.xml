@@ -20,4 +20,10 @@
     <style name="TextoSubtitulo" parent="TextoTitulo">
         <item name="android:textSize">26sp</item>
     </style>
+
+    <!-- Cantos arredondados da imagem do pássaro -->
+    <style name="ImagemPassaro" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">14dp</item>
+    </style>
 </resources>
