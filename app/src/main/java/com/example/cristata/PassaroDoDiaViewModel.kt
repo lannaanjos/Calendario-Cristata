@@ -16,6 +16,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 
 data class PassaroDoDia(
@@ -39,10 +41,20 @@ class PassaroDoDiaViewModel(application: Application) : AndroidViewModel(applica
     val estado: StateFlow<EstadoPassaroDoDia> = _estado.asStateFlow()
     private var buscaEmAndamento: Job? = null
 
+    private val banco = BancoHelper(application)
+    private val _colecao = MutableStateFlow<List<PassaroColecao>>(emptyList())
+    val colecao: StateFlow<List<PassaroColecao>> = _colecao.asStateFlow()
+
+    init {
+        atualizarColecao()
+    }
+
+
     fun carregarPassaroDoDia() {
         val dataHoje = SimpleDateFormat("yyyy-MM-dd", Locale.ROOT).format(Date())
         lerPassaroSalvo(dataHoje)?.let {
             _estado.value = EstadoPassaroDoDia.Sucesso(it)
+            adicionarNaColecao(it, dataHoje)
             return
         }
 
@@ -76,6 +88,7 @@ class PassaroDoDiaViewModel(application: Application) : AndroidViewModel(applica
                     .get(Calendar.DAY_OF_YEAR)
                 val indiceDoDia = (diaDoAno - 1) % passarosComImagem.size
                 val passaro = passarosComImagem[indiceDoDia]
+
                 val dadosDoDia = PassaroDoDia(
                     nome = passaro.name.orEmpty().ifBlank {
                         getApplication<Application>().getString(R.string.nome_desconhecido)
@@ -86,6 +99,8 @@ class PassaroDoDiaViewModel(application: Application) : AndroidViewModel(applica
 
                 salvarPassaro(dataEscolhida, dadosDoDia)
                 _estado.value = EstadoPassaroDoDia.Sucesso(dadosDoDia)
+                adicionarNaColecao(dadosDoDia, dataEscolhida)
+
             } catch (cancelamento: CancellationException) {
                 throw cancelamento
             } catch (erro: HttpException) {
@@ -110,6 +125,26 @@ class PassaroDoDiaViewModel(application: Application) : AndroidViewModel(applica
                 )
             }
         }
+    }
+
+    private fun atualizarColecao() {
+        viewModelScope.launch {
+            _colecao.value = withContext(Dispatchers.IO) { banco.listarColecao() }
+        }
+    }
+
+    private fun adicionarNaColecao(passaro: PassaroDoDia, data: String) {
+        viewModelScope.launch {
+            _colecao.value = withContext(Dispatchers.IO) {
+                banco.salvarNaColecao(passaro, data)
+                banco.listarColecao()
+            }
+        }
+    }
+
+    override fun onCleared() {
+        banco.close()
+        super.onCleared()
     }
 
     private fun lerPassaroSalvo(dataHoje: String): PassaroDoDia? {
