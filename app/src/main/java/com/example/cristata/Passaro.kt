@@ -11,3 +11,10 @@ data class RespostaPassaros(
     val pageSize: Int? = null,
     val entities: List<Passaro>? = null
 )
+
+data class PassaroColecao(
+    val id: Long,
+    val nome: String,
+    val nomeCientifico: String,
+    val urlImagem: String
+)
