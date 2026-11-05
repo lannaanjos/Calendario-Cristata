@@ -1,7 +1,13 @@
 package com.example.cristata
 
-class NuthatchApi {
+import retrofit2.http.GET
+import retrofit2.http.Query
 
-    // chamadas da api
-
+interface NuthatchApi {
+    @GET("birds")
+    suspend fun listarPassaros(
+        @Query("page") pagina: Int = 1,
+        @Query("pageSize") tamanhoPagina: Int = 100,
+        @Query("hasImg") somenteComImagem: Boolean = true
+    ): RespostaPassaros
 }

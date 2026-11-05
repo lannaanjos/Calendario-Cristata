@@ -6,6 +6,11 @@
     <string name="nav_colecao">Coleção</string>
     <string name="nav_config">Configurações</string>
     <string name="titulo_inicio">Pássaro do Dia</string>
+    <string name="nome_desconhecido">Nome não informado</string>
+    <string name="erro_chave_api">Não foi possível acessar a API. Verifique a chave Nuthatch.</string>
+    <string name="erro_sem_imagens">Não há pássaros com imagens disponíveis.</string>
+    <string name="erro_sem_internet">Sem conexão com a internet. Tente novamente mais tarde.</string>
+    <string name="erro_api">Não foi possível carregar o pássaro do dia.</string>
     <string name="titulo_calendario">Calendário</string>
     <string name="titulo_colecao">Coleção</string>
 </resources>

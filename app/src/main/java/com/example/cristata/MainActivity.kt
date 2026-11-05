@@ -2,10 +2,12 @@ package com.example.cristata
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.compose.ui.platform.ComposeView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var passaroViewModel: PassaroDoDiaViewModel
 
     private val paginas = listOf(
         Pagina(R.id.nav_home, R.layout.pagina_inicial),
@@ -19,9 +21,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        passaroViewModel = ViewModelProvider(this)[PassaroDoDiaViewModel::class.java]
         val barra = findViewById<BottomNavigationView>(R.id.barraNavegacao)
         findViewById<ComposeView>(R.id.composePaginas).setContent {
-            PaginasDeslizaveis(paginas, barra)
+            PaginasDeslizaveis(paginas, barra, passaroViewModel)
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        passaroViewModel.carregarPassaroDoDia()
     }
 }

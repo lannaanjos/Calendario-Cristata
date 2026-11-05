@@ -53,6 +53,46 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:shapeAppearanceOverlay="@style/ImagemPassaro" />
 
+            <TextView
+                android:id="@+id/txtNomePassaro"
+                style="@style/TextoSubtitulo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:gravity="center"
+                android:maxLines="2"
+                android:ellipsize="end"
+                app:layout_constraintEnd_toEndOf="@id/guiaDireita"
+                app:layout_constraintStart_toStartOf="@id/guiaEsquerda"
+                app:layout_constraintTop_toBottomOf="@id/imgPassaro" />
+
+            <TextView
+                android:id="@+id/txtNomeCientificoPassaro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/open_sans_italic"
+                android:gravity="center"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textColor="@color/cor_texto"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@id/guiaDireita"
+                app:layout_constraintStart_toStartOf="@id/guiaEsquerda"
+                app:layout_constraintTop_toBottomOf="@id/txtNomePassaro" />
+
+            <TextView
+                android:id="@+id/txtErroPassaro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:textColor="@color/cor_texto"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/guiaDireita"
+                app:layout_constraintStart_toStartOf="@id/guiaEsquerda"
+                app:layout_constraintTop_toBottomOf="@id/txtNomeCientificoPassaro" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
 </LinearLayout>
