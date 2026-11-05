@@ -1,19 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_height="match_parent"
+    android:background="@color/cor_painel"
+    android:fitsSystemWindows="true"
+    android:padding="20dp">
 
-    <TextView
-        android:id="@+id/tvNomeEvento"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp" />
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_cartao_passaro"
+        android:orientation="vertical"
+        android:padding="14dp">
 
-    <TextView
-        android:id="@+id/tvDataLocal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-</LinearLayout>
+        <TextView
+            android:id="@+id/txtNomeDetalhe"
+            style="@style/TextoTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/txtNomeCientificoDetalhe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/open_sans_italic"
+            android:gravity="center"
+            android:textColor="@color/cor_texto"
+            android:textSize="20sp" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgPassaroDetalhe"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="14dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/descricao_imagem_passaro"
+            android:scaleType="centerCrop"
+
+            app:shapeAppearanceOverlay="@style/ImagemPassaro" />
+    </LinearLayout>
+</FrameLayout>
