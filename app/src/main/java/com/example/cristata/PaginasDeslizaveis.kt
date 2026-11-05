@@ -13,6 +13,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
+import android.view.View
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
@@ -26,6 +29,7 @@ fun PaginasDeslizaveis(
     val estado = rememberPagerState { paginas.size }
     val escopo = rememberCoroutineScope()
     val estadoPassaro by passaroViewModel.estado.collectAsState()
+    val colecao by passaroViewModel.colecao.collectAsState()
 
     // se deslizou marca o ícone da página atual
     LaunchedEffect(estado.currentPage) {
@@ -49,6 +53,9 @@ fun PaginasDeslizaveis(
                 LayoutInflater.from(contexto).inflate(paginas[indice].layout, null)
             },
             update = { view ->
+                if (paginas[indice].layout == R.layout.pagina_colecao) {
+                    atualizarColecao(view, colecao)
+                }
                 if (paginas[indice].layout == R.layout.pagina_inicial) {
                     val imagem = view.findViewById<com.google.android.material.imageview.ShapeableImageView>(
                         R.id.imgPassaro
@@ -97,4 +104,16 @@ fun PaginasDeslizaveis(
             modifier = Modifier.fillMaxSize()
         )
     }
+}
+private fun atualizarColecao(view: View, colecao: List<PassaroColecao>) {
+    val lista = view.findViewById<RecyclerView>(R.id.listaColecao)
+    val vazio = view.findViewById<TextView>(R.id.txtColecaoVazia)
+
+    val adapter = lista.adapter as? PassaroColecaoAdapter
+        ?: PassaroColecaoAdapter { passaro ->
+            lista.context.startActivity(PassaroActivity.criarIntent(lista.context, passaro))
+        }.also { lista.adapter = it }
+
+    adapter.submitList(colecao)
+    vazio.visibility = if (colecao.isEmpty()) View.VISIBLE else View.GONE
 }
