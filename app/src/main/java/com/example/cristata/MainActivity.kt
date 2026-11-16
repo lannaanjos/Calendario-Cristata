@@ -7,6 +7,11 @@ import androidx.compose.ui.platform.ComposeView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
+    // única janela
+    // cada andoid:id="@+id/nome" num XML de layout faz o android gerar uma const R.id>nome q o Kotlin pd usar
+    // ao abrir, a MainActivity desenha a moldura, pega a barra, pega a área do pager e coloca as páginas nela
+    // essa atv espera q seu XML tenha a moldura, q é o ComposeView com id composePaginas e a barra nav.
+
     private lateinit var passaroViewModel: PassaroDoDiaViewModel
 
     private val paginas = listOf(
@@ -33,3 +38,9 @@ class MainActivity : AppCompatActivity() {
         passaroViewModel.carregarPassaroDoDia()
     }
 }
+
+/* Um activity é uma tela gerenciada pelo próprio Android.
+* ela deve estar registrada no manifest, aberta com um intent, ter ciclo de vida próprio e entrar na fila de navegação.
+*
+* O layout XML é um desenho. A Activity é a classe Kotlin correspondente.
+* */
