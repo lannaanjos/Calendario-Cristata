@@ -10,11 +10,13 @@ O objetivo do aplicativo é fornecer uma interface divertida e informativa para 
 
 O aplicativo possui duas funcionalidades principais: a apresentação das aves e o sistema de calendário com registro de eventos.
 Todos os dias, ao abrir o aplicativo, o usuário verá o pássaro selecionado do dia. O pássaro é registrado em sua coleção de aves somente se o aplicativo for aberto naquele dia.
-Também é possível gerenciar suas tarefas e eventos no calendários.
+Também é possível gerenciar suas tarefas e eventos no calendário.
 Ele contará com uma tela de configuração, onde é possível escolher o modo claro ou escuro de exibição, ser redirecionado para o repositório do projeto e visualizar mais informações do projeto.
 
-## Intregrantes
+## Integrantes
 
 Bruna Amaral Chapelin
+
 Lanna dos Anjos Costa
+
 Marcos Vinicius Ferreira da Rocha Schiavon
