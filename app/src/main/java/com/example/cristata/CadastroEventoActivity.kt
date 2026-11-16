@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 class CadastroEventoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_cadastro_evento)
+        setContentView(R.layout.bubble_cadastro_evento)
 
         val etNome = findViewById<EditText>(R.id.etNome)
         val etData = findViewById<EditText>(R.id.etData)

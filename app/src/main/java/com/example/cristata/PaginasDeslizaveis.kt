@@ -53,7 +53,7 @@ fun PaginasDeslizaveis(
                 LayoutInflater.from(contexto).inflate(paginas[indice].layout, null)
             },
             update = { view ->
-                if (paginas[indice].layout == R.layout.pagina_colecao) {
+                if (paginas[indice].layout == R.layout.tela_colecao) {
                     atualizarColecao(view, colecao)
                 }
                 if (paginas[indice].layout == R.layout.activity_main) {

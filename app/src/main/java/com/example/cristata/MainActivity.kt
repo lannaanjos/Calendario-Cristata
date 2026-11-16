@@ -17,9 +17,9 @@ class MainActivity : AppCompatActivity() {
     private val paginas = listOf(
         Pagina(R.id.nav_home, R.layout.activity_main),
         // Pagina(R.id.nav_eventos, R.layout.pagina_eventos),
-        Pagina(R.id.nav_calendario, R.layout.activity_calendario),
-        Pagina(R.id.nav_colecao, R.layout.pagina_colecao),
-        Pagina(R.id.nav_config, R.layout.activity_configs)
+        Pagina(R.id.nav_calendario, R.layout.tela_calendario),
+        Pagina(R.id.nav_colecao, R.layout.tela_colecao),
+        Pagina(R.id.nav_config, R.layout.tela_configs)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
