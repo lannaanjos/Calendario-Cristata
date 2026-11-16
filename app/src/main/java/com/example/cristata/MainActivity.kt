@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var passaroViewModel: PassaroDoDiaViewModel
 
     private val paginas = listOf(
-        Pagina(R.id.nav_home, R.layout.pagina_inicial),
+        Pagina(R.id.nav_home, R.layout.activity_main),
         Pagina(R.id.nav_eventos, R.layout.pagina_eventos),
         Pagina(R.id.nav_calendario, R.layout.pagina_calendario),
         Pagina(R.id.nav_colecao, R.layout.pagina_colecao),

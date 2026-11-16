@@ -56,7 +56,7 @@ fun PaginasDeslizaveis(
                 if (paginas[indice].layout == R.layout.pagina_colecao) {
                     atualizarColecao(view, colecao)
                 }
-                if (paginas[indice].layout == R.layout.pagina_inicial) {
+                if (paginas[indice].layout == R.layout.activity_main) {
                     val imagem = view.findViewById<com.google.android.material.imageview.ShapeableImageView>(
                         R.id.imgPassaro
                     )
