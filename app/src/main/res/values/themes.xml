@@ -26,4 +26,18 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">14dp</item>
     </style>
+
+    <!-- Linha da tela de configurações, icon à esquerda e texto itálico -->
+    <style name="LinhaConfig">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">64dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:drawablePadding">16dp</item>
+        <item name="android:fontFamily">@font/open_sans_italic</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/cor_texto</item>
+    </style>
 </resources>
