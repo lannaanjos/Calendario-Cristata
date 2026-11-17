@@ -44,5 +44,13 @@
             android:text="@string/config_redefinir"
             app:drawableStartCompat="@drawable/ic_config_redefinir" />
 
+        <!-- api -->
+        <TextView
+            android:id="@+id/txtSobreApi"
+            style="@style/LinhaConfig"
+            android:background="@color/cor_painel"
+            android:text="@string/config_sobre_api"
+            app:drawableStartCompat="@drawable/ic_config_api" />
+
     </LinearLayout>
 </FrameLayout>

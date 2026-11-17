@@ -31,5 +31,6 @@
     <string name="config_modo_escuro">Modo escuro</string>
     <string name="config_modo_claro">Modo claro</string>
     <string name="config_redefinir">Redefinir</string>
+    <string name="config_sobre_api">Sobre a API</string>
 
 </resources>
