@@ -36,5 +36,6 @@
 
     <!-- funcionalidades tela config -->
     <string name="url_repositorio" translatable="false">https://github.com/lannaanjos/Calendario-Cristata</string>
+    <string name="url_api" translatable="false">https://nuthatch.lastelm.software/</string>
 
 </resources>
