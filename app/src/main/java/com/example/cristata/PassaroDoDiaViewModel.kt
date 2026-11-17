@@ -142,6 +142,15 @@ class PassaroDoDiaViewModel(application: Application) : AndroidViewModel(applica
         }
     }
 
+    fun limparColecao() {
+        viewModelScope.launch {
+            _colecao.value = withContext(Dispatchers.IO) {
+                banco.limparColecao()
+                banco.listarColecao()
+            }
+        }
+    }
+
     override fun onCleared() {
         banco.close()
         super.onCleared()
