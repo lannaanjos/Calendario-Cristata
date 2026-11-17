@@ -130,6 +130,9 @@ private fun configurarConfiguracoes(view: View) {
     view.findViewById<TextView>(R.id.txtSaibaMais).setOnClickListener {
         abrirLink(view.context, view.context.getString(R.string.url_repositorio))
     }
+    view.findViewById<TextView>(R.id.txtSobreApi).setOnClickListener {
+        abrirLink(view.context, view.context.getString(R.string.url_api))
+    }
 }
 
 // abre a url no navegador do celular
