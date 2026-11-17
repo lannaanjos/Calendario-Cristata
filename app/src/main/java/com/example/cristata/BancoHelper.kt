@@ -102,4 +102,9 @@ class BancoHelper(context: Context) :
         return lista
     }
 
+    // apaga todos os pássaros da coleção
+    fun limparColecao() {
+        writableDatabase.delete("passaros", null, null)
+    }
+
 }
