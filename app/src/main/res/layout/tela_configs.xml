@@ -14,13 +14,20 @@
         android:background="@color/cor_painel_secundario"
         android:orientation="vertical">
 
-        <!-- linha 1: versão (bege) -->
+        <!-- versao -->
         <TextView
             android:id="@+id/txtVersao"
             style="@style/LinhaConfig"
             android:background="@color/cor_painel"
             android:text="@string/config_versao"
             app:drawableStartCompat="@drawable/ic_config_versao" />
+
+        <!-- saiba mais -->
+        <TextView
+            android:id="@+id/txtSaibaMais"
+            style="@style/LinhaConfig"
+            android:text="@string/config_saiba_mais"
+            app:drawableStartCompat="@drawable/ic_config_saiba_mais" />
 
     </LinearLayout>
 </FrameLayout>
