@@ -52,5 +52,25 @@
             android:text="@string/config_sobre_api"
             app:drawableStartCompat="@drawable/ic_config_api" />
 
+        <!-- bloco p empurrar os créditos pra baixo -->
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- créditos -->
+        <TextView
+            android:id="@+id/txtCreditos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="8dp"
+            android:fontFamily="@font/open_sans_italic"
+            android:gravity="start"
+            android:text="@string/config_creditos"
+            android:textColor="@color/cor_texto"
+            android:textSize="10sp" />
+
     </LinearLayout>
 </FrameLayout>
