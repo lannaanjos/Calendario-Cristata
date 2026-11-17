@@ -34,4 +34,7 @@
     <string name="config_sobre_api">Sobre a API</string>
     <string name="config_creditos">Calendário Cristata © Bruna Chapelin • Lanna dos Anjos • Marcos Schiavon</string>
 
+    <!-- funcionalidades tela config -->
+    <string name="url_repositorio" translatable="false">https://github.com/lannaanjos/Calendario-Cristata</string>
+
 </resources>
