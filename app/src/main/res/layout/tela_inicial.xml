@@ -4,95 +4,135 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/cor_background">
+    android:background="@color/cor_background"
+    android:orientation="vertical">
 
+    <!-- Header do pássaro do dia -->
     <TextView
         style="@style/TextoTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/cor_painel"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_header"
         android:gravity="center"
         android:padding="8dp"
         android:text="@string/titulo_inicio" />
 
-    <FrameLayout
-        android:id="@+id/conteudoInicio"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <!-- margens laterais proporcionais à largura da tela -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guiaEsquerda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.12" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guiaEsquerda"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.12"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guiaDireita"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.88" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guiaDireita"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.873"/>
+        <!-- passarito do diazito -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgPassaro"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="48dp"
+            android:scaleType="centerCrop"
+            android:src="@color/cor_painel_secundario"
+            app:layout_constraintDimensionRatio="H,813:665"
+            app:layout_constraintEnd_toEndOf="@id/guiaDireita"
+            app:layout_constraintStart_toStartOf="@id/guiaEsquerda"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ImagemPassaro" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/imgPassaro"
-                android:layout_width="306dp"
-                android:layout_height="284dp"
-                android:layout_marginTop="42dp"
-                android:scaleType="centerCrop"
-                android:src="@color/cor_painel_secundario"
-                app:layout_constraintDimensionRatio="H,813:665"
-                app:layout_constraintEnd_toEndOf="@id/guiaDireita"
-                app:layout_constraintStart_toStartOf="@id/guiaEsquerda"
-                app:layout_constraintTop_toTopOf="parent"
-                app:shapeAppearanceOverlay="@style/ImagemPassaro" />
+        <!-- bowl 1 menorzinha -->
+        <View
+            android:id="@+id/bowl1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="8dp"
+            android:background="@drawable/bg_bowl_1"
+            app:layout_constraintDimensionRatio="H,6:1"
+            app:layout_constraintEnd_toEndOf="@id/guiaDireita"
+            app:layout_constraintStart_toStartOf="@id/guiaEsquerda"
+            app:layout_constraintTop_toBottomOf="@id/imgPassaro" />
 
-            <TextView
-                android:id="@+id/txtNomePassaro"
-                style="@style/TextoSubtitulo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:gravity="center"
-                android:maxLines="2"
-                android:ellipsize="end"
-                app:layout_constraintEnd_toEndOf="@id/guiaDireita"
-                app:layout_constraintStart_toStartOf="@id/guiaEsquerda"
-                app:layout_constraintTop_toBottomOf="@id/imgPassaro" />
+        <!-- bowl media com nome do passaro -->
+        <View
+            android:id="@+id/bowl2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_bowl_2"
+            app:layout_constraintDimensionRatio="H,13:5"
+            app:layout_constraintEnd_toEndOf="@id/guiaDireita"
+            app:layout_constraintStart_toStartOf="@id/guiaEsquerda"
+            app:layout_constraintTop_toBottomOf="@id/bowl1" />
 
-            <TextView
-                android:id="@+id/txtNomeCientificoPassaro"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:fontFamily="@font/open_sans_italic"
-                android:gravity="center"
-                android:maxLines="2"
-                android:ellipsize="end"
-                android:textColor="@color/cor_texto"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@id/guiaDireita"
-                app:layout_constraintStart_toStartOf="@id/guiaEsquerda"
-                app:layout_constraintTop_toBottomOf="@id/txtNomePassaro" />
+        <!-- bowlzona -->
+        <View
+            android:id="@+id/bowl3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_bowl_3"
+            app:layout_constraintDimensionRatio="H,13:5"
+            app:layout_constraintEnd_toEndOf="@id/guiaDireita"
+            app:layout_constraintStart_toStartOf="@id/guiaEsquerda"
+            app:layout_constraintTop_toBottomOf="@id/bowl2" />
 
-            <TextView
-                android:id="@+id/txtErroPassaro"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:gravity="center"
-                android:textColor="@color/cor_texto"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="@id/guiaDireita"
-                app:layout_constraintStart_toStartOf="@id/guiaEsquerda"
-                app:layout_constraintTop_toBottomOf="@id/txtNomeCientificoPassaro" />
+        <!-- nome normal white -->
+        <TextView
+            android:id="@+id/txtNomePassaro"
+            style="@style/TextoSubtitulo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="16dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/cor_texto_sobre_primaria"
+            app:layout_constraintEnd_toEndOf="@id/bowl2"
+            app:layout_constraintStart_toStartOf="@id/bowl2"
+            app:layout_constraintTop_toTopOf="@id/bowl2"
+            tools:text="Seriema" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </FrameLayout>
+        <!-- nome científico black n' italic -->
+        <TextView
+            android:id="@+id/txtNomeCientificoPassaro"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/open_sans_italic"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/cor_texto"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@id/bowl2"
+            app:layout_constraintStart_toStartOf="@id/bowl2"
+            app:layout_constraintTop_toBottomOf="@id/txtNomePassaro"
+            tools:text="Cariama cristata" />
+
+        <!-- mensagem de erro: aparece no lugar dos nomes -->
+        <TextView
+            android:id="@+id/txtErroPassaro"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:textColor="@color/cor_texto_sobre_primaria"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/bowl2"
+            app:layout_constraintStart_toStartOf="@id/bowl2"
+            app:layout_constraintTop_toTopOf="@id/bowl2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
