@@ -19,6 +19,9 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
+import android.content.Context
+import android.content.Intent
+import androidx.core.net.toUri
 
 @Composable
 fun PaginasDeslizaveis(
@@ -50,7 +53,11 @@ fun PaginasDeslizaveis(
     HorizontalPager(state = estado, beyondViewportPageCount = paginas.size - 1) { indice ->
         AndroidView(
             factory = { contexto ->
-                LayoutInflater.from(contexto).inflate(paginas[indice].layout, null)
+                LayoutInflater.from(contexto).inflate(paginas[indice].layout, null).also { view ->
+                    if (paginas[indice].layout == R.layout.tela_configs) {
+                        configurarConfiguracoes(view)
+                    }
+                }
             },
             update = { view ->
                 if (paginas[indice].layout == R.layout.tela_colecao) {
@@ -116,4 +123,16 @@ private fun atualizarColecao(view: View, colecao: List<PassaroColecao>) {
 
     adapter.submitList(colecao)
     vazio.visibility = if (colecao.isEmpty()) View.VISIBLE else View.GONE
+}
+
+// liga as ações das linhas da tela de configurações
+private fun configurarConfiguracoes(view: View) {
+    view.findViewById<TextView>(R.id.txtSaibaMais).setOnClickListener {
+        abrirLink(view.context, view.context.getString(R.string.url_repositorio))
+    }
+}
+
+// abre a url no navegador do celular
+private fun abrirLink(contexto: Context, url: String) {
+    contexto.startActivity(Intent(Intent.ACTION_VIEW, url.toUri()))
 }
