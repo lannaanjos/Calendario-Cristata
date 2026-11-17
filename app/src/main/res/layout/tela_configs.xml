@@ -37,5 +37,12 @@
             android:text="@string/config_modo_escuro"
             app:drawableStartCompat="@drawable/ic_config_modo_iluminacao" />
 
+        <!-- redefinir coleção -->
+        <TextView
+            android:id="@+id/txtRedefinir"
+            style="@style/LinhaConfig"
+            android:text="@string/config_redefinir"
+            app:drawableStartCompat="@drawable/ic_config_redefinir" />
+
     </LinearLayout>
 </FrameLayout>

@@ -30,5 +30,6 @@
     <string name="config_saiba_mais">Saiba mais</string>
     <string name="config_modo_escuro">Modo escuro</string>
     <string name="config_modo_claro">Modo claro</string>
+    <string name="config_redefinir">Redefinir</string>
 
 </resources>
