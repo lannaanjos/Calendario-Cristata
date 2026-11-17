@@ -28,5 +28,7 @@
     <!-- tela configurações -->
     <string name="config_versao">Versão Alpha 0.6</string>
     <string name="config_saiba_mais">Saiba mais</string>
+    <string name="config_modo_escuro">Modo escuro</string>
+    <string name="config_modo_claro">Modo claro</string>
 
 </resources>

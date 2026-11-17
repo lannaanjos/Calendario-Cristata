@@ -29,5 +29,13 @@
             android:text="@string/config_saiba_mais"
             app:drawableStartCompat="@drawable/ic_config_saiba_mais" />
 
+        <!-- iluminacao -->
+        <TextView
+            android:id="@+id/txtModoEscuro"
+            style="@style/LinhaConfig"
+            android:background="@color/cor_painel"
+            android:text="@string/config_modo_escuro"
+            app:drawableStartCompat="@drawable/ic_config_modo_iluminacao" />
+
     </LinearLayout>
 </FrameLayout>
