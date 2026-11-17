@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- meia tigela com degradê vertical, estica pro tamanho da view -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="100dp"
+    android:height="40dp"
+    android:viewportWidth="100"
+    android:viewportHeight="40">
+
+    <path android:pathData="M0,0 L100,0 A50,40 0 0,1 0,0 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="50"
+                android:startY="0"
+                android:endX="50"
+                android:endY="40"
+                android:startColor="@color/cor_bowl_1"
+                android:endColor="@color/cor_bowl_2" />
+        </aapt:attr>
+    </path>
+</vector>
