@@ -13,10 +13,11 @@ class MainActivity : AppCompatActivity() {
     // essa atv espera q seu XML tenha a moldura, q é o ComposeView com id composePaginas e a barra nav.
 
     private lateinit var passaroViewModel: PassaroDoDiaViewModel
+    private lateinit var eventosViewModel: EventosViewModel
 
     private val paginas = listOf(
         Pagina(R.id.nav_home, R.layout.tela_inicial),
-        // Pagina(R.id.nav_eventos, R.layout.pagina_eventos),
+        Pagina(R.id.nav_eventos, R.layout.tela_lista_eventos),
         Pagina(R.id.nav_calendario, R.layout.tela_calendario),
         Pagina(R.id.nav_colecao, R.layout.tela_colecao),
         Pagina(R.id.nav_config, R.layout.tela_configs)
@@ -27,15 +28,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         passaroViewModel = ViewModelProvider(this)[PassaroDoDiaViewModel::class.java]
+        eventosViewModel = ViewModelProvider(this)[EventosViewModel::class.java]
         val barra = findViewById<BottomNavigationView>(R.id.barraNavegacao)
         findViewById<ComposeView>(R.id.composePaginas).setContent {
-            PaginasDeslizaveis(paginas, barra, passaroViewModel)
+            PaginasDeslizaveis(paginas, barra, passaroViewModel, eventosViewModel)
         }
     }
 
     override fun onStart() {
         super.onStart()
         passaroViewModel.carregarPassaroDoDia()
+        eventosViewModel.carregar()
     }
 }
 
