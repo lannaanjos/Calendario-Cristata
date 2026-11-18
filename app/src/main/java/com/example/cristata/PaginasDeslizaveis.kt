@@ -27,12 +27,14 @@ import androidx.core.net.toUri
 fun PaginasDeslizaveis(
     paginas: List<Pagina>,
     barra: BottomNavigationView,
-    passaroViewModel: PassaroDoDiaViewModel
+    passaroViewModel: PassaroDoDiaViewModel,
+    eventosViewModel: EventosViewModel
 ) {
     val estado = rememberPagerState { paginas.size }
     val escopo = rememberCoroutineScope()
     val estadoPassaro by passaroViewModel.estado.collectAsState()
     val colecao by passaroViewModel.colecao.collectAsState()
+    val eventos by eventosViewModel.eventos.collectAsState()
 
     // se deslizou marca o ícone da página atual
     LaunchedEffect(estado.currentPage) {
@@ -57,11 +59,17 @@ fun PaginasDeslizaveis(
                     if (paginas[indice].layout == R.layout.tela_configs) {
                         configurarConfiguracoes(view)
                     }
+                    if (paginas[indice].layout == R.layout.tela_calendario) {
+                        configurarCalendario(view)
+                    }
                 }
             },
             update = { view ->
                 if (paginas[indice].layout == R.layout.tela_colecao) {
                     atualizarColecao(view, colecao)
+                }
+                if (paginas[indice].layout == R.layout.tela_lista_eventos) {
+                    atualizarEventos(view, eventos)
                 }
                 if (paginas[indice].layout == R.layout.tela_inicial) {
                     val imagem = view.findViewById<com.google.android.material.imageview.ShapeableImageView>(
@@ -123,6 +131,29 @@ private fun atualizarColecao(view: View, colecao: List<PassaroColecao>) {
 
     adapter.submitList(colecao)
     vazio.visibility = if (colecao.isEmpty()) View.VISIBLE else View.GONE
+}
+
+// preenche a lista de eventos; tocar num cartão abre a tela de edição
+private fun atualizarEventos(view: View, eventos: List<Evento>) {
+    val lista = view.findViewById<RecyclerView>(R.id.listaEventos)
+    val vazio = view.findViewById<TextView>(R.id.txtEventosVazio)
+
+    val adapter = lista.adapter as? EventoAdapter
+        ?: EventoAdapter { evento ->
+            lista.context.startActivity(
+                CadastroEventoActivity.criarIntentEdicao(lista.context, evento)
+            )
+        }.also { lista.adapter = it }
+
+    adapter.submitEventos(eventos)
+    vazio.visibility = if (eventos.isEmpty()) View.VISIBLE else View.GONE
+}
+
+// liga o botão NOVO EVENTO da tela de calendário à tela de cadastro
+private fun configurarCalendario(view: View) {
+    view.findViewById<View>(R.id.btnNovoEvento).setOnClickListener {
+        view.context.startActivity(Intent(view.context, CadastroEventoActivity::class.java))
+    }
 }
 
 // liga as ações das linhas da tela de configurações
