@@ -38,4 +38,8 @@
     <string name="url_repositorio" translatable="false">https://github.com/lannaanjos/Calendario-Cristata</string>
     <string name="url_api" translatable="false">https://nuthatch.lastelm.software/</string>
 
+    <!-- tela lista de eventos -->
+    <string name="evento_dia_todo">Dia todo</string>
+    <string name="eventos_vazio">Nenhum evento cadastrado ainda.</string>
+
 </resources>
