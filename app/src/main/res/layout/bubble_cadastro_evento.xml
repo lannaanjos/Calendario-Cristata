@@ -16,7 +16,13 @@
         android:id="@+id/etData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Data" />
+        android:hint="Data (aaaa-mm-dd)" />
+
+    <EditText
+        android:id="@+id/etHora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Hora (hh:mm) - vazio = dia todo" />
 
     <EditText
         android:id="@+id/etLocal"
