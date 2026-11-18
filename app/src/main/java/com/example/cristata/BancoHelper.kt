@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
 class BancoHelper(context: Context) :
-    SQLiteOpenHelper(context, "campus.db", null, 2) {
+    SQLiteOpenHelper(context, "campus.db", null, 3) {
 
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL("""
@@ -16,7 +16,9 @@ class BancoHelper(context: Context) :
                 data TEXT,
                 local TEXT,
                 descricao TEXT,
-                favorito INTEGER DEFAULT 0
+                favorito INTEGER DEFAULT 0,
+                hora TEXT DEFAULT '',
+                feriado INTEGER DEFAULT 0
             )
         """.trimIndent())
         criarTabelaPassaros(db)
@@ -24,6 +26,10 @@ class BancoHelper(context: Context) :
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         if (oldVersion < 2) criarTabelaPassaros(db)
+        if (oldVersion < 3) {
+            db.execSQL("ALTER TABLE eventos ADD COLUMN hora TEXT DEFAULT ''")
+            db.execSQL("ALTER TABLE eventos ADD COLUMN feriado INTEGER DEFAULT 0")
+        }
     }
 
     private fun criarTabelaPassaros(db: SQLiteDatabase) {
@@ -40,20 +46,30 @@ class BancoHelper(context: Context) :
     }
 
     fun inserir(evento: Evento): Long {
-        val valores = ContentValues().apply {
-            put("nome", evento.nome)
-            put("data", evento.data)
-            put("local", evento.local)
-            put("descricao", evento.descricao)
-            put("favorito", if (evento.favorito) 1 else 0)
-        }
-        return writableDatabase.insert("eventos", null, valores)
+        return writableDatabase.insert("eventos", null, valoresDe(evento))
     }
+
+    fun atualizar(evento: Evento): Int {
+        return writableDatabase.update(
+            "eventos", valoresDe(evento), "id = ?", arrayOf(evento.id.toString())
+        )
+    }
+
+    private fun valoresDe(evento: Evento) = ContentValues().apply {
+        put("nome", evento.nome)
+        put("data", evento.data)
+        put("local", evento.local)
+        put("descricao", evento.descricao)
+        put("favorito", if (evento.favorito) 1 else 0)
+        put("hora", evento.hora)
+        put("feriado", if (evento.feriado) 1 else 0)
+    }
+
 
     fun listar(): MutableList<Evento> {
         val lista = mutableListOf<Evento>()
         val cursor = readableDatabase.rawQuery(
-            "SELECT * FROM eventos ORDER BY id DESC",
+            "SELECT * FROM eventos ORDER BY data ASC, hora ASC, id ASC",
             null
         )
         while (cursor.moveToNext()) {
@@ -61,10 +77,12 @@ class BancoHelper(context: Context) :
                 Evento(
                     id = cursor.getInt(cursor.getColumnIndexOrThrow("id")),
                     nome = cursor.getString(cursor.getColumnIndexOrThrow("nome")),
-                    data = cursor.getString(cursor.getColumnIndexOrThrow("data")),
-                    local = cursor.getString(cursor.getColumnIndexOrThrow("local")),
-                    descricao = cursor.getString(cursor.getColumnIndexOrThrow("descricao")),
-                    favorito = cursor.getInt(cursor.getColumnIndexOrThrow("favorito")) == 1
+                    data = cursor.getString(cursor.getColumnIndexOrThrow("data")) ?: "",
+                    local = cursor.getString(cursor.getColumnIndexOrThrow("local")) ?: "",
+                    descricao = cursor.getString(cursor.getColumnIndexOrThrow("descricao")) ?: "",
+                    favorito = cursor.getInt(cursor.getColumnIndexOrThrow("favorito")) == 1,
+                    hora = cursor.getString(cursor.getColumnIndexOrThrow("hora")) ?: "",
+                    feriado = cursor.getInt(cursor.getColumnIndexOrThrow("feriado")) == 1
                 )
             )
         }

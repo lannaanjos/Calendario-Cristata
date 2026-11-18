@@ -6,5 +6,7 @@ data class Evento(
     val data: String,
     val local: String,
     val descricao: String,
-    val favorito: Boolean = false
+    val favorito: Boolean = false,
+    val hora: String = "",
+    val feriado: Boolean = false
 )
