@@ -16,6 +16,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+
 import coil.load
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch

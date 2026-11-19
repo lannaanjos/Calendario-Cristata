@@ -18,6 +18,7 @@
 
     <!-- tela calendário -->
     <string name="titulo_calendario">Calendário</string>
+    <string name="agenda_hoje">Agenda de Hoje</string>
 
     <!-- tela coleção -->
     <string name="titulo_colecao">Coleção</string>

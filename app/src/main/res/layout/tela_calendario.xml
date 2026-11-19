@@ -1,51 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp">
+    android:background="@color/cor_background"
+    android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
+        style="@style/TextoTitulo"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Calendário Cristata"
-        android:textSize="28sp" />
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_header"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="@string/titulo_calendario" />
 
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp" />
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/white" />
 
-    <Button
-        android:id="@+id/btnNovoEvento"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="NOVO EVENTO"
-        android:layout_marginTop="12dp" />
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvEventos"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_weight="1" />
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginVertical="24dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_agenda_card"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/placeholderPassaro"
-        android:layout_width="363dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="12dp"
-        android:background="#E0E0E0"
-        android:gravity="center"
-        android:text="Placeholder para a futura API de pássaros"
-        android:textColor="#616161" />
+        <TextView
+            style="@style/TextoTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/agenda_hoje"
+            android:textSize="22sp" />
 
-    <Button
-        android:id="@+id/btnVoltar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="VOLTAR" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/cor_principal" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvEventos"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:padding="12dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <Button
+            android:id="@+id/btnNovoEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:backgroundTint="@color/cor_principal"
+            android:text="NOVO EVENTO"
+            android:textColor="@color/cor_texto_sobre_primaria" />
+    </LinearLayout>
 </LinearLayout>
