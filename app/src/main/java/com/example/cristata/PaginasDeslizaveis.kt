@@ -71,7 +71,7 @@ fun PaginasDeslizaveis(
             factory = { contexto ->
                 LayoutInflater.from(contexto).inflate(paginas[indice].layout, null).also { view ->
                     if (paginas[indice].layout == R.layout.tela_configs) {
-                        configurarConfiguracoes(view)
+                        configurarConfiguracoes(view, passaroViewModel)
                     }
                     if (paginas[indice].layout == R.layout.tela_calendario) {
                         configurarCalendario(view)
@@ -294,12 +294,15 @@ private fun atualizarAgenda(tela: View, eventos: List<Evento>) {
     mostrarAgenda(tela)
 }
 // liga as ações das linhas da tela de configurações
-private fun configurarConfiguracoes(view: View) {
+private fun configurarConfiguracoes(view: View, passaroViewModel: PassaroDoDiaViewModel) {
     view.findViewById<TextView>(R.id.txtSaibaMais).setOnClickListener {
         abrirLink(view.context, view.context.getString(R.string.url_repositorio))
     }
     view.findViewById<TextView>(R.id.txtSobreApi).setOnClickListener {
         abrirLink(view.context, view.context.getString(R.string.url_api))
+    }
+    view.findViewById<TextView>(R.id.txtRedefinir).setOnClickListener {
+        passaroViewModel.limparColecao()
     }
 }
 
