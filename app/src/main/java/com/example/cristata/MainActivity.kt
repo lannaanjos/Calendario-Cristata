@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        TemaApp.aplicarSalvo(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 

@@ -304,6 +304,15 @@ private fun configurarConfiguracoes(view: View, passaroViewModel: PassaroDoDiaVi
     view.findViewById<TextView>(R.id.txtRedefinir).setOnClickListener {
         passaroViewModel.limparColecao()
     }
+    val linhaModo = view.findViewById<TextView>(R.id.txtModoEscuro)
+    // mostra a opção contrária ao modo atual
+    linhaModo.setText(
+        if (TemaApp.estaEscuro(view.context)) R.string.config_modo_claro
+        else R.string.config_modo_escuro
+    )
+    linhaModo.setOnClickListener {
+        TemaApp.alternar(view.context)
+    }
 }
 
 // abre a url no navegador do celular
