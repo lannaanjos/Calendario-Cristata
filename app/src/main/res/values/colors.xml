@@ -19,4 +19,5 @@
 
     <color name="cor_evento_feriado">#6BC68E</color>
     <color name="cor_evento_usuario">#2F4FEA</color>
+    <color name="cor_dia_evento">#2A8044</color> <!-- dia com evento no calendário -->
 </resources>

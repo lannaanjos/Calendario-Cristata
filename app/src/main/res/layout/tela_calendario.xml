@@ -16,13 +16,16 @@
         android:padding="8dp"
         android:text="@string/titulo_calendario" />
 
-    <CalendarView
+    <com.kizitonwose.calendar.view.CalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="24dp"
-        android:background="@android:color/white" />
+        android:background="@android:color/white"
+        app:cv_dayViewResource="@layout/calendario_dia"
+        app:cv_monthHeaderResource="@layout/calendario_cabecalho_mes"
+        app:cv_outDateStyle="endOfGrid" />
 
     <LinearLayout
         android:layout_width="match_parent"

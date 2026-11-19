@@ -46,6 +46,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+        isCoreLibraryDesugaringEnabled = true
     }
 }
 
@@ -65,4 +66,6 @@ dependencies {
     implementation(libs.coil)
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.gson)
+    implementation("com.kizitonwose.calendar:view:2.10.1")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 }
