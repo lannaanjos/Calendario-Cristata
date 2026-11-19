@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- paleta do modo escuro -->
+<resources>
+    <color name="cor_background">#121C19</color>
+    <color name="cor_painel">#302E21</color>
+    <color name="cor_painel_secundario">#2A3F34</color>
+    <color name="cor_cartao">#232B27</color>
+
+    <color name="cor_principal">#163631</color>
+    <color name="cor_titulo">#A8DDBB</color>
+    <color name="cor_destaque">#5DAE7E</color>
+    <color name="cor_texto">#E6EDE9</color>
+    <color name="cor_texto_sobre_primaria">#F2F5F3</color>
+
+    <!-- bowls da tela inicial (degradê) -->
+    <color name="cor_bowl_1">#3A9446</color>
+    <color name="cor_bowl_2">#2B7339</color>
+    <color name="cor_bowl_3">#1E5E36</color>
+    <color name="cor_bowl_4">#0D3829</color>
+
+    <color name="cor_evento_feriado">#5DAE7E</color>
+    <color name="cor_evento_usuario">#7B91F2</color>
+    <color name="cor_dia_evento">#2E7A46</color>
+</resources>
