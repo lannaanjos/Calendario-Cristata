@@ -11,7 +11,7 @@
         android:gravity="center"
         android:paddingTop="12dp"
         android:paddingBottom="8dp"
-        android:textColor="@color/cor_principal"
+        android:textColor="@color/cor_titulo"
         android:textSize="18sp"
         android:textStyle="bold" />
 

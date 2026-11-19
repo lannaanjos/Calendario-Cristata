@@ -13,7 +13,7 @@
     <!-- Títulos -->
     <style name="TextoTitulo">
         <item name="android:fontFamily">@font/alfa_slab_one</item>
-        <item name="android:textColor">@color/cor_principal</item>
+        <item name="android:textColor">@color/cor_titulo</item>
         <item name="android:textSize">40sp</item>
     </style>
 

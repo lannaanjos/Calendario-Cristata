@@ -6,6 +6,7 @@
     <color name="cor_cartao">#eeeeee</color>  <!-- cartões de evento -->
 
     <color name="cor_principal">#00302c</color> <!-- barra inferior, títulos -->
+    <color name="cor_titulo">#00302c</color> <!-- títulos e nome do mês -->
     <color name="cor_destaque">#6bc68e</color> <!-- ícones inativos, formulário -->
     <color name="cor_texto">#000000</color>
     <color name="cor_texto_sobre_primaria">#ffffff</color>
